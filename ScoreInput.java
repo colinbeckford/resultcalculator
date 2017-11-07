@@ -34,6 +34,17 @@ public class ScoreInput extends JFrame
 	private JLabel lblRestart;
 	private JLabel lblDiscard;
 	private JLabel lblDetach;
+	int minus;
+	int control;
+	int execution;
+	int choreography;
+	int bodycontrol;
+	int restart;
+	int discard;
+	int detach;
+	int raw;
+
+	
 	
 	//int that represents what player the list is on
 	int increment = 0;
@@ -118,27 +129,101 @@ public class ScoreInput extends JFrame
 		getContentPane().add(txtDetach);
 		txtDetach.setColumns(10);
 		
-		//button to submit scores for player
-		JButton btnSubmit = new JButton("Submit");
-		btnSubmit.addActionListener(new ActionListener() {
+		//label that shows confirm statement
+		JLabel lblConfirm = new JLabel("Are you sure you want to submit?");
+		lblConfirm.setBounds(71, 240, 224, 16);
+		getContentPane().add(lblConfirm);
+		lblConfirm.setVisible(false);
+		
+		//label that appears if there is an error 
+		JLabel lblError = new JLabel("You have an invalid parameter in your input.");
+		lblError.setBounds(31, 212, 295, 16);
+		getContentPane().add(lblError);
+		lblError.setVisible(false);
+		
+		//button for yes to confirm submit
+		JButton btnYes = new JButton("Yes");
+		
+		//button for no to confirm submit
+				JButton btnNo = new JButton("No");
+				btnNo.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) 
+					{
+						txtPlus.setText("");
+						txtMinus.setText("");
+						txtControl.setText("");
+						txtExecution.setText("");
+						txtBodyControl.setText("");
+						txtChoreography.setText("");
+						txtRestart.setText("");
+						txtDiscard.setText("");
+						txtDetach.setText("");
+						btnYes.setVisible(false);
+						btnNo.setVisible(false);
+						lblError.setVisible(false);
+						lblConfirm.setVisible(false);
+					}
+				});
+				btnNo.setBounds(184, 268, 117, 29);
+				getContentPane().add(btnNo);
+				btnNo.setVisible(false);
+		
+		//yes button command
+		btnYes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				// variables for name and scores initialized by textfield info and data is added to arraylist
 				if (increment < Player.alPlayerList.size())
 				{
+					if (Integer.parseInt(txtRestart.getText()) < 0)
+					{
+						restart = Integer.parseInt(txtRestart.getText())*(-1);
+					}
+					else
+					{
+						restart = Integer.parseInt(txtRestart.getText());
+					}
+					if (Integer.parseInt(txtDiscard.getText()) < 0)
+					{
+						discard = Integer.parseInt(txtDiscard.getText())*(-1);
+					}
+					else
+					{
+						discard = Integer.parseInt(txtDiscard.getText());
+					}
+					if (Integer.parseInt(txtDetach.getText()) < 0)
+					{
+						detach = Integer.parseInt(txtDetach.getText())*(-1);
+					}
+					else
+					{
+						detach = Integer.parseInt(txtDetach.getText());
+					}
+					if (Integer.parseInt(txtMinus.getText()) < 0)
+					{
+						minus = Integer.parseInt(txtMinus.getText())*(-1);
+					}
+					else
+					{
+						minus = Integer.parseInt(txtMinus.getText());
+					}
+					
 					String name = txtName.getText();
-					int raw = (Integer.parseInt(txtPlus.getText()) - Integer.parseInt(txtMinus.getText()));
+					raw = (Integer.parseInt(txtPlus.getText()) - minus);
+					control = Integer.parseInt(txtControl.getText());
+					execution = Integer.parseInt(txtExecution.getText());
+					choreography = Integer.parseInt(txtChoreography.getText());
+					bodycontrol = Integer.parseInt(txtBodyControl.getText());
 					
-					int control = Integer.parseInt(txtControl.getText());
-					int execution = Integer.parseInt(txtExecution.getText());
-					int choreography = Integer.parseInt(txtChoreography.getText());
-					int bodycontrol = Integer.parseInt(txtBodyControl.getText());
 					
-					int restart = Integer.parseInt(txtRestart.getText());
-					int discard = Integer.parseInt(txtDiscard.getText());
-					int detach = Integer.parseInt(txtDetach.getText());
 					
+
 					rawPlayerScores.add(new rawScore(name, raw, control, execution, choreography, bodycontrol, restart, discard, detach));		
+					btnYes.setVisible(false);
+					btnNo.setVisible(false);
+					lblConfirm.setVisible(false);
+					lblError.setVisible(false);
+					
 				}
 				//if the player is the last player, if statement above is completed as well as sorting/normalizing/calculation methods are computed, resulting in opening the results table
 				if (increment == Player.alPlayerList.size()-1)
@@ -166,7 +251,25 @@ public class ScoreInput extends JFrame
 				}
 			}
 		});
-		btnSubmit.setBounds(278, 199, 117, 29);
+		btnYes.setBounds(66, 268, 117, 29);
+		getContentPane().add(btnYes);
+		btnYes.setVisible(false);
+		
+		//button to submit scores for player
+		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				lblConfirm.setVisible(true);
+				if (Integer.parseInt(txtControl.getText()) > 10 || Integer.parseInt(txtControl.getText()) < 0 || Integer.parseInt(txtExecution.getText()) > 10 || Integer.parseInt(txtExecution.getText()) < 0 || Integer.parseInt(txtChoreography.getText()) > 10 || Integer.parseInt(txtChoreography.getText()) < 0 || Integer.parseInt(txtBodyControl.getText()) > 10 || Integer.parseInt(txtBodyControl.getText()) < 0 )
+				{
+					lblError.setVisible(true);
+				}
+				btnYes.setVisible(true);
+				btnNo.setVisible(true);
+			}
+		});
+		btnSubmit.setBounds(243, 164, 117, 29);
 		getContentPane().add(btnSubmit);
 		
 		//title
@@ -223,9 +326,7 @@ public class ScoreInput extends JFrame
 		lblDetach = new JLabel("Detach");
 		lblDetach.setBounds(144, 151, 61, 16);
 		getContentPane().add(lblDetach);
+		
+		
 	}
-	
-	
-	
-	
 }

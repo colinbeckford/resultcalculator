@@ -113,7 +113,7 @@ public class rawScore {
 		for (int i=0;i<ScoreInput.rawPlayerScores.size();i++)
 		{
 			double total = (ScoreInput.rawPlayerScores.get(i).getRaw()+ScoreInput.rawPlayerScores.get(i).getControl()+ScoreInput.rawPlayerScores.get(i).getExecution()+ScoreInput.rawPlayerScores.get(i).getChoreography()+ScoreInput.rawPlayerScores.get(i).getBodyControl()) - ((ScoreInput.rawPlayerScores.get(i).getRestart()*1)+(ScoreInput.rawPlayerScores.get(i).getDiscard()*3)+(ScoreInput.rawPlayerScores.get(i).getDetach())*5);
-			finalScore.finalPlayerScores.add(new finalScore(0, ScoreInput.rawPlayerScores.get(i).getName(), ScoreInput.rawPlayerScores.get(i).getRaw(), ScoreInput.rawPlayerScores.get(i).getControl(), ScoreInput.rawPlayerScores.get(i).getExecution(), ScoreInput.rawPlayerScores.get(i).getChoreography(), ScoreInput.rawPlayerScores.get(i).getBodyControl(), (ScoreInput.rawPlayerScores.get(i).getRestart()*-1), (ScoreInput.rawPlayerScores.get(i).getDiscard()*-3), (ScoreInput.rawPlayerScores.get(i).getDetach()*-5), total));
+			finalScore.finalPlayerScores.add(new finalScore(0, ScoreInput.rawPlayerScores.get(i).getName(), ScoreInput.rawPlayerScores.get(i).getRaw(), ScoreInput.rawPlayerScores.get(i).getControl(), ScoreInput.rawPlayerScores.get(i).getExecution(), ScoreInput.rawPlayerScores.get(i).getChoreography(), ScoreInput.rawPlayerScores.get(i).getBodyControl(), (ScoreInput.rawPlayerScores.get(i).getRestart()), (ScoreInput.rawPlayerScores.get(i).getDiscard()), (ScoreInput.rawPlayerScores.get(i).getDetach()), total));
 		}
 	}
 	
