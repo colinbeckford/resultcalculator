@@ -1,7 +1,7 @@
 # resultcalculator
 Personalized yo-yo freestyle result calculator
 
-Current version - 
+Current version - now equipped with error handling & entry confirmation
 Directions:
 **BE SURE TO HAVE ALL JAVA FILES INSTALLED & IN THE SAME DIRECTORY**
 1. Run the Player class
@@ -11,7 +11,6 @@ Directions:
 5. Upon submitting the last player's scores, the results table will open.
 
 Future version (in testing) - 
-Customize your categories and scoring breakdowns
-Error handling - submitting an evaluation over 10 or under 0 
-Save results sheet as a file?
+1. Customize your categories and scoring breakdowns
+2. Save results sheet as a file
 
