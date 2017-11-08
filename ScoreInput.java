@@ -16,10 +16,10 @@ public class ScoreInput extends JFrame
 	private JTextField txtName;
 	private JTextField txtPlus;
 	private JTextField txtMinus;
-	private JTextField txtControl;
-	private JTextField txtExecution;
-	private JTextField txtBodyControl;
-	private JTextField txtChoreography;
+	private JTextField txtC1;
+	private JTextField txtC2;
+	private JTextField txtC4;
+	private JTextField txtC3;
 	private JTextField txtRestart;
 	private JTextField txtDiscard;
 	private JTextField txtDetach;
@@ -27,18 +27,18 @@ public class ScoreInput extends JFrame
 	private JLabel lblName;
 	private JLabel labelPlus;
 	private JLabel labelMinus;
-	private JLabel lblControl;
-	private JLabel lblExecution;
-	private JLabel lblChoreography;
-	private JLabel lblBodyControl;
+	private JLabel lblC1;
+	private JLabel lblC2;
+	private JLabel lblC3;
+	private JLabel lblC4;
 	private JLabel lblRestart;
 	private JLabel lblDiscard;
 	private JLabel lblDetach;
 	int minus;
-	int control;
-	int execution;
-	int choreography;
-	int bodycontrol;
+	int C1;
+	int C2;
+	int C3;
+	int C4;
 	int restart;
 	int discard;
 	int detach;
@@ -80,33 +80,33 @@ public class ScoreInput extends JFrame
 		getContentPane().add(txtMinus);
 		txtMinus.setColumns(10);
 		
-		//where to put control score
-		txtControl = new JTextField();
-		txtControl.setText("");
-		txtControl.setBounds(6, 113, 61, 26);
-		getContentPane().add(txtControl);
-		txtControl.setColumns(10);
+		//where to put C1 score
+		txtC1 = new JTextField();
+		txtC1.setText("");
+		txtC1.setBounds(6, 113, 61, 26);
+		getContentPane().add(txtC1);
+		txtC1.setColumns(10);
 		
-		//where to put execution score
-		txtExecution = new JTextField();
-		txtExecution.setText("");
-		txtExecution.setBounds(71, 113, 82, 26);
-		getContentPane().add(txtExecution);
-		txtExecution.setColumns(10);
+		//where to put C2 score
+		txtC2 = new JTextField();
+		txtC2.setText("");
+		txtC2.setBounds(71, 113, 82, 26);
+		getContentPane().add(txtC2);
+		txtC2.setColumns(10);
 		
-		//where to put body control score
-		txtBodyControl = new JTextField();
-		txtBodyControl.setText("");
-		txtBodyControl.setBounds(271, 113, 95, 26);
-		getContentPane().add(txtBodyControl);
-		txtBodyControl.setColumns(10);
+		//where to put body C1 score
+		txtC4 = new JTextField();
+		txtC4.setText("");
+		txtC4.setBounds(271, 113, 95, 26);
+		getContentPane().add(txtC4);
+		txtC4.setColumns(10);
 		
-		//where to put choreography score
-		txtChoreography = new JTextField();
-		txtChoreography.setText("");
-		txtChoreography.setBounds(158, 113, 101, 26);
-		getContentPane().add(txtChoreography);
-		txtChoreography.setColumns(10);
+		//where to put C3 score
+		txtC3 = new JTextField();
+		txtC3.setText("");
+		txtC3.setBounds(158, 113, 101, 26);
+		getContentPane().add(txtC3);
+		txtC3.setColumns(10);
 		
 		//where to put number of restarts
 		txtRestart = new JTextField();
@@ -151,10 +151,10 @@ public class ScoreInput extends JFrame
 					{
 						txtPlus.setText("");
 						txtMinus.setText("");
-						txtControl.setText("");
-						txtExecution.setText("");
-						txtBodyControl.setText("");
-						txtChoreography.setText("");
+						txtC1.setText("");
+						txtC2.setText("");
+						txtC4.setText("");
+						txtC3.setText("");
 						txtRestart.setText("");
 						txtDiscard.setText("");
 						txtDetach.setText("");
@@ -210,15 +210,15 @@ public class ScoreInput extends JFrame
 					
 					String name = txtName.getText();
 					raw = (Integer.parseInt(txtPlus.getText()) - minus);
-					control = Integer.parseInt(txtControl.getText());
-					execution = Integer.parseInt(txtExecution.getText());
-					choreography = Integer.parseInt(txtChoreography.getText());
-					bodycontrol = Integer.parseInt(txtBodyControl.getText());
+					C1 = Integer.parseInt(txtC1.getText());
+					C2 = Integer.parseInt(txtC2.getText());
+					C3 = Integer.parseInt(txtC3.getText());
+					C4 = Integer.parseInt(txtC4.getText());
 					
 					
 					
 
-					rawPlayerScores.add(new rawScore(name, raw, control, execution, choreography, bodycontrol, restart, discard, detach));		
+					rawPlayerScores.add(new rawScore(name, raw, C1, C2, C3, C4, restart, discard, detach));		
 					btnYes.setVisible(false);
 					btnNo.setVisible(false);
 					lblConfirm.setVisible(false);
@@ -241,10 +241,10 @@ public class ScoreInput extends JFrame
 					txtName.setText(Player.alPlayerList.get(increment));
 					txtPlus.setText("");
 					txtMinus.setText("");
-					txtControl.setText("");
-					txtExecution.setText("");
-					txtBodyControl.setText("");
-					txtChoreography.setText("");
+					txtC1.setText("");
+					txtC2.setText("");
+					txtC4.setText("");
+					txtC3.setText("");
 					txtRestart.setText("");
 					txtDiscard.setText("");
 					txtDetach.setText("");
@@ -261,7 +261,7 @@ public class ScoreInput extends JFrame
 			public void actionPerformed(ActionEvent e) 
 			{
 				lblConfirm.setVisible(true);
-				if (Integer.parseInt(txtControl.getText()) > 10 || Integer.parseInt(txtControl.getText()) < 0 || Integer.parseInt(txtExecution.getText()) > 10 || Integer.parseInt(txtExecution.getText()) < 0 || Integer.parseInt(txtChoreography.getText()) > 10 || Integer.parseInt(txtChoreography.getText()) < 0 || Integer.parseInt(txtBodyControl.getText()) > 10 || Integer.parseInt(txtBodyControl.getText()) < 0 )
+				if (Integer.parseInt(txtC1.getText()) > 10 || Integer.parseInt(txtC1.getText()) < 0 || Integer.parseInt(txtC2.getText()) > 10 || Integer.parseInt(txtC2.getText()) < 0 || Integer.parseInt(txtC3.getText()) > 10 || Integer.parseInt(txtC3.getText()) < 0 || Integer.parseInt(txtC4.getText()) > 10 || Integer.parseInt(txtC4.getText()) < 0 )
 				{
 					lblError.setVisible(true);
 				}
@@ -292,25 +292,25 @@ public class ScoreInput extends JFrame
 		labelMinus.setBounds(243, 41, 15, 16);
 		getContentPane().add(labelMinus);
 		
-		//label for control score
-		lblControl = new JLabel("Control");
-		lblControl.setBounds(6, 98, 61, 16);
-		getContentPane().add(lblControl);
+		//label for first eval
+		lblC1 = new JLabel(Selection.getc1());
+		lblC1.setBounds(6, 98, 61, 16);
+		getContentPane().add(lblC1);
 		
-		//label for execution score
-		lblExecution = new JLabel("Execution");
-		lblExecution.setBounds(71, 98, 82, 16);
-		getContentPane().add(lblExecution);
+		//label for C2 score
+		lblC2 = new JLabel(Selection.getc2());
+		lblC2.setBounds(71, 98, 82, 16);
+		getContentPane().add(lblC2);
 		
-		//label for choreography score
-		lblChoreography = new JLabel("Choreography");
-		lblChoreography.setBounds(158, 98, 101, 16);
-		getContentPane().add(lblChoreography);
+		//label for C3 score
+		lblC3 = new JLabel(Selection.getc3());
+		lblC3.setBounds(158, 98, 101, 16);
+		getContentPane().add(lblC3);
 		
-		//label for body control score
-		lblBodyControl = new JLabel("Body Control");
-		lblBodyControl.setBounds(271, 98, 95, 16);
-		getContentPane().add(lblBodyControl);
+		//label for body C1 score
+		lblC4 = new JLabel(Selection.getc4());
+		lblC4.setBounds(271, 98, 95, 16);
+		getContentPane().add(lblC4);
 		
 		//label for restarts
 		lblRestart = new JLabel("Restart");

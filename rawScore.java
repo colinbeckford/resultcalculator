@@ -9,23 +9,23 @@ public class rawScore {
 	static int highest;
 	String Sname;
 	int Irawscore;
-	int Icontrol;
-	int Iexecution;
-	int Ichoreography;
-	int Ibodycontrol;
+	int IC1;
+	int IC2;
+	int IC3;
+	int IC4;
 	int Irestart;
 	int Idiscard;
 	int Idetach;
 	
 	//constructor for the player's scores
-	public rawScore(String name, int raw, int control, int execution, int choreography, int bodycontrol, int restart, int discard, int detach)
+	public rawScore(String name, int raw, int C1, int C2, int C3, int C4, int restart, int discard, int detach)
 	{
 		Sname = name;
 		Irawscore = raw;
-		Icontrol = control;
-		Iexecution = execution;
-		Ichoreography = choreography;
-		Ibodycontrol = bodycontrol;
+		IC1 = C1;
+		IC2 = C2;
+		IC3 = C3;
+		IC4 = C4;
 		Irestart = restart;
 		Idiscard = discard;
 		Idetach = detach;
@@ -44,28 +44,28 @@ public class rawScore {
 		return Irawscore;
 	}
 	
-	//get method for control score
-	public int getControl()
+	//get method for C1 score
+	public int getC1()
 	{
-		return Icontrol;
+		return IC1;
 	}
 	
-	//get method for execution score
-	public int getExecution()
+	//get method for C2 score
+	public int getC2()
 	{
-		return Iexecution;
+		return IC2;
 	}
 	
-	//get method for choreography
-	public int getChoreography()
+	//get method for C3
+	public int getC3()
 	{
-		return Ichoreography;
+		return IC3;
 	}
 	
-	//get method for body control
-	public int getBodyControl()
+	//get method for body C1
+	public int getC4()
 	{
-		return Ibodycontrol;
+		return IC4;
 	}
 	
 	//get method for restarts
@@ -112,8 +112,8 @@ public class rawScore {
 	{
 		for (int i=0;i<ScoreInput.rawPlayerScores.size();i++)
 		{
-			double total = (ScoreInput.rawPlayerScores.get(i).getRaw()+ScoreInput.rawPlayerScores.get(i).getControl()+ScoreInput.rawPlayerScores.get(i).getExecution()+ScoreInput.rawPlayerScores.get(i).getChoreography()+ScoreInput.rawPlayerScores.get(i).getBodyControl()) - ((ScoreInput.rawPlayerScores.get(i).getRestart()*1)+(ScoreInput.rawPlayerScores.get(i).getDiscard()*3)+(ScoreInput.rawPlayerScores.get(i).getDetach())*5);
-			finalScore.finalPlayerScores.add(new finalScore(0, ScoreInput.rawPlayerScores.get(i).getName(), ScoreInput.rawPlayerScores.get(i).getRaw(), ScoreInput.rawPlayerScores.get(i).getControl(), ScoreInput.rawPlayerScores.get(i).getExecution(), ScoreInput.rawPlayerScores.get(i).getChoreography(), ScoreInput.rawPlayerScores.get(i).getBodyControl(), (ScoreInput.rawPlayerScores.get(i).getRestart()), (ScoreInput.rawPlayerScores.get(i).getDiscard()), (ScoreInput.rawPlayerScores.get(i).getDetach()), total));
+			double total = (ScoreInput.rawPlayerScores.get(i).getRaw()+ScoreInput.rawPlayerScores.get(i).getC1()+ScoreInput.rawPlayerScores.get(i).getC2()+ScoreInput.rawPlayerScores.get(i).getC3()+ScoreInput.rawPlayerScores.get(i).getC4()) - ((ScoreInput.rawPlayerScores.get(i).getRestart()*1)+(ScoreInput.rawPlayerScores.get(i).getDiscard()*3)+(ScoreInput.rawPlayerScores.get(i).getDetach())*5);
+			finalScore.finalPlayerScores.add(new finalScore(0, ScoreInput.rawPlayerScores.get(i).getName(), ScoreInput.rawPlayerScores.get(i).getRaw(), ScoreInput.rawPlayerScores.get(i).getC1(), ScoreInput.rawPlayerScores.get(i).getC2(), ScoreInput.rawPlayerScores.get(i).getC3(), ScoreInput.rawPlayerScores.get(i).getC4(), (ScoreInput.rawPlayerScores.get(i).getRestart()), (ScoreInput.rawPlayerScores.get(i).getDiscard()), (ScoreInput.rawPlayerScores.get(i).getDetach()), total));
 		}
 	}
 	

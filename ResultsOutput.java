@@ -21,10 +21,10 @@ public class ResultsOutput extends JFrame
 				{"Placing",
 		            "Name",
 		            "Tech",
-		            "Control",
-		            "Execution",
-		            "Choreography",
-		            "Body Control",
+		            Selection.getc1(),
+		            Selection.getc2(),
+		            Selection.getc3(),
+		            Selection.getc4(),
 		            "Restart",
 		            "Discard",
 		            "Detach",
@@ -46,15 +46,15 @@ public class ResultsOutput extends JFrame
 		    	int iPlacing = finalScore.finalPlayerScores.get(i).getPlacing();
 		    	String sName = finalScore.finalPlayerScores.get(i).getName();
 		    	int iTech = finalScore.finalPlayerScores.get(i).getTech();
-		    	int iControl = finalScore.finalPlayerScores.get(i).getControl();
-		    	int iExecution = finalScore.finalPlayerScores.get(i).getExecution();
-		    	int iChoreography = finalScore.finalPlayerScores.get(i).getChoreography();
-		    	int iBodyControl = finalScore.finalPlayerScores.get(i).getBodyControl();
+		    	int iC1 = finalScore.finalPlayerScores.get(i).getC1();
+		    	int iC2 = finalScore.finalPlayerScores.get(i).getC2();
+		    	int iC3 = finalScore.finalPlayerScores.get(i).getC3();
+		    	int iC4 = finalScore.finalPlayerScores.get(i).getC4();
 		    	int iRestart = finalScore.finalPlayerScores.get(i).getRestart();
 		    	int iDiscard = finalScore.finalPlayerScores.get(i).getDiscard();
 		    	int iDetach = finalScore.finalPlayerScores.get(i).getDetach();
 		    	double dFinalScore = finalScore.finalPlayerScores.get(i).getFinal();
-		      table.addRow(new Object[] {iPlacing, sName, iTech, iControl, iExecution, iChoreography, iBodyControl, iRestart, iDiscard, iDetach, dFinalScore});
+		      table.addRow(new Object[] {iPlacing, sName, iTech, iC1, iC2, iC3, iC4, iRestart, iDiscard, iDetach, dFinalScore});
 		    }
 
 		    //frame info
